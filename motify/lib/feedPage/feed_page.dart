@@ -36,14 +36,14 @@ class FeedPageState extends State<FeedPage> {
       body: SingleChildScrollView(
         child: Container(
           width: 390,
-          height: 1300,
+          height: 1400,
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Column(
               children: const <Widget>[
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: AmyPost(),
                   ),
@@ -54,7 +54,7 @@ class FeedPageState extends State<FeedPage> {
                 ),
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: JohnPost(),
                   ),
@@ -65,7 +65,7 @@ class FeedPageState extends State<FeedPage> {
                 ),
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: JacobPost(),
                   ),
