@@ -28,7 +28,7 @@ class JohnPostState extends State<JohnPost> {
                           height: 400,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromRGBO(249, 200, 191, 1),
+                            color: const Color.fromRGBO(240, 222, 149, 1),
                           ),
                         ),
                       ),
@@ -40,7 +40,7 @@ class JohnPostState extends State<JohnPost> {
                           height: 236,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromRGBO(224, 152, 138, 1),
+                            color: const Color.fromRGBO(240, 222, 149, 1),
                             image: const DecorationImage(
                               image: AssetImage('assets/images/sunset2.png'),
                               fit: BoxFit.cover,
