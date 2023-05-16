@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motify/feedPage/amy_widget.dart';
 import 'package:motify/feedPage/john_widget.dart';
 import 'package:motify/feedPage/jacob_widget.dart';
+import 'package:motify/common_widgets/bottom_nav.dart';
 
 class FeedPage extends StatefulWidget {
   const FeedPage({Key? key}) : super(key: key);
@@ -74,47 +75,7 @@ class FeedPageState extends State<FeedPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: const Color.fromRGBO(255, 247, 246, 1),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.home, size: 40, color: Color.fromRGBO(99, 151, 136, 1)),
-                onPressed: () {
-                  // Handle home button press
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.add_box, size: 38, color: Color.fromRGBO(99, 151, 136, 1)),
-                onPressed: () {
-                  // Handle search button press
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.window, size: 38, color: Color.fromRGBO(99, 151, 136, 1)),
-                onPressed: () {
-                  // Handle notifications button press
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.search, size: 38, color: Color.fromRGBO(99, 151, 136, 1)),
-                onPressed: () {
-                  // Handle notifications button press
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.person, size: 38, color: Color.fromRGBO(99, 151, 136, 1)),
-                onPressed: () {
-                  // Handle profile button press
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+       bottomNavigationBar: const BottomNav(),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:motify/homepage/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +57,7 @@ class MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FeedPage(),
+                    MaterialPageRoute(builder: (context) => const HomePage(),
                     ),
                   );
                 },
