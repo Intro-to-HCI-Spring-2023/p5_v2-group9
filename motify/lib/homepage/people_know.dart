@@ -11,7 +11,7 @@ class PeopleKnowState extends State<PeopleKnow> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 372,
+      width: 390,
       height: 113,
       child: Stack(
         children: <Widget>[
@@ -19,7 +19,7 @@ class PeopleKnowState extends State<PeopleKnow> {
             top: 0,
             left: 30,
             child: Text(
-              'People you may know',
+              'People You May Know',
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: Color.fromRGBO(0, 0, 0, 1),
@@ -35,11 +35,12 @@ class PeopleKnowState extends State<PeopleKnow> {
             top: 28,
             left: 0,
             child: Container(
-              width: 372,
+              width: 390,
               height: 85,
               decoration: const BoxDecoration(),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Row(
                   children: <Widget>[
@@ -73,9 +74,6 @@ class PeopleKnowState extends State<PeopleKnow> {
                       'Max T.',
                     ),
                     const SizedBox(width: 15),
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20), // Add space after the last profile
-                    ),
                   ],
                 ),
               ),
