@@ -1,6 +1,6 @@
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:flutter/material.dart';
-import 'package:motify/feedPage/amy_widget.dart';
+
 
 void main() {
   runApp(const MyApp());
