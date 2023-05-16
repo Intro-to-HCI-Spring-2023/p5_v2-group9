@@ -66,6 +66,16 @@ flutter:
     - assets/images/sunset.jpeg
     - assets/images/john.png
     - assets/images/sunset2.png
+    - assets/images/gym.png
+    - assets/images/jacob.png
+    - assets/images/hunter.png
+    - assets/images/stroll.png
+    - assets/images/kate.png
+    - assets/images/anna.png
+    - assets/images/doja.png
+    - assets/images/brad.png
+    - assets/images/max.png
+    - assets/images/johnW.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

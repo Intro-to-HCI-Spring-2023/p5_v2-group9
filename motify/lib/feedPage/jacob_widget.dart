@@ -1,13 +1,14 @@
+
 import 'package:flutter/material.dart';
 
-class JohnPost extends StatefulWidget {
-  const JohnPost({Key? key});
+class JacobPost extends StatefulWidget {
+  const JacobPost({Key? key});
 
   @override
-  JohnPostState createState() => JohnPostState();
+  JacobPostState createState() => JacobPostState();
 }
 
-class JohnPostState extends State<JohnPost> {
+class JacobPostState extends State<JacobPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +29,7 @@ class JohnPostState extends State<JohnPost> {
                           height: 400,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromRGBO(240, 222, 149, 1),
+                            color: const Color.fromRGBO(249, 200, 191, 1),
                           ),
                         ),
                       ),
@@ -40,9 +41,9 @@ class JohnPostState extends State<JohnPost> {
                           height: 236,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromRGBO(240, 222, 149, 1),
+                            color: const Color.fromRGBO(224, 152, 138, 1),
                             image: const DecorationImage(
-                              image: AssetImage('assets/images/sunset2.png'),
+                              image: AssetImage('assets/images/gym.png'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -57,7 +58,7 @@ class JohnPostState extends State<JohnPost> {
                           decoration: const BoxDecoration(
                             color: Color.fromRGBO(217, 217, 217, 1),
                             image: DecorationImage(
-                              image: AssetImage('assets/images/john.png'),
+                              image: AssetImage('assets/images/jacob.png'),
                               fit: BoxFit.cover,
                             ),
                             borderRadius: BorderRadius.all(
@@ -73,7 +74,7 @@ class JohnPostState extends State<JohnPost> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              'John',
+                              'Jacob',
                               style: TextStyle(
                                 color: Color.fromRGBO(5, 19, 6, 1),
                                 fontFamily: 'Roboto',
@@ -85,7 +86,7 @@ class JohnPostState extends State<JohnPost> {
                             ),
                             SizedBox(height: 2),
                             Text(
-                              '1.5 hours ago',
+                              '5 hour ago',
                               style: TextStyle(
                                 color: Color.fromRGBO(5, 19, 6, 0.5),
                                 fontFamily: 'Roboto',
@@ -105,7 +106,7 @@ class JohnPostState extends State<JohnPost> {
                           width: 296,
                           height: 136,
                           child: Text(
-                            'Hike with Amy today. Such a beautiful view. God I love the outdoors. This is such a cool place. wish i could...',
+                            'Finally got the time for the gym today. This play is honestly so nice. Just gotta remember to go more often I guess.',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: Color.fromRGBO(5, 19, 6, 1),
@@ -113,7 +114,7 @@ class JohnPostState extends State<JohnPost> {
                               fontSize: 14,
                               letterSpacing: 0,
                               fontWeight: FontWeight.normal,
-                              height: 1.4285714285714286,
+                              height: 1.4285714286,
                             ),
                           ),
                         ),
@@ -129,6 +130,3 @@ class JohnPostState extends State<JohnPost> {
     );
   }
 }
- 
-
-
