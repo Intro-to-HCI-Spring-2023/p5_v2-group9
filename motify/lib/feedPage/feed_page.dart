@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/challengeAfriend/create_challenge.dart';
 import 'package:motify/feedPage/amy_widget.dart';
 import 'package:motify/feedPage/john_widget.dart';
 
@@ -74,6 +75,11 @@ class FeedPageState extends State<FeedPage> {
                 icon: Icon(Icons.notifications, size: 30),
                 onPressed: () {
                   // Handle notifications button press
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CreateChallenge(),
+                    ),
+                  );
                 },
               ),
               IconButton(
