@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/challengeAfriend/create_challenge.dart';
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:motify/homePage/home_page.dart';
 
@@ -38,7 +39,16 @@ class BottomNavState extends State<BottomNav> {
             IconButton(
               icon: Icon(Icons.add_box, size: 38, color: Color.fromRGBO(99, 151, 136, 1)),
               onPressed: () {
-                // Handle search button press
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => const CreateChallenge(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      return child; // Return the child directly without any transition animation
+                    },
+                    transitionDuration: Duration(milliseconds: 0), // Set the transition duration to 0ms
+                  ),
+                );
               },
             ),
             IconButton(
