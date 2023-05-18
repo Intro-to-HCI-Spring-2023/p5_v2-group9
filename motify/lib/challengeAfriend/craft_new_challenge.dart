@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:motify/challengeAfriend/challenge_formatter.dart';
 import 'package:motify/challengeAfriend/challenge_templates.dart';
-import 'package:motify/challengeAfriend/craft_new_challenge.dart';
 import 'package:motify/challengeAfriend/interests.dart';
 import 'package:motify/challengeAfriend/interests_formatter.dart';
 import 'package:motify/common_widgets/bottom_nav.dart';
 
-class CreateChallenge extends StatefulWidget {
-  const CreateChallenge({Key? key}) : super(key: key);
+class CraftChallenge extends StatefulWidget {
+  const CraftChallenge({Key? key}) : super(key: key);
 
   @override
-  State<CreateChallenge> createState() => CreateChallengeState();
+  State<CraftChallenge> createState() => CraftChallengeState();
 }
 
-class CreateChallengeState extends State<CreateChallenge> {
-  void onPressed() {
-    print('Craft a challenge pressed!');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CraftChallenge()),
-    );
-
-  }
+class CraftChallengeState extends State<CraftChallenge> {
+  final TextEditingController _textEditingController1 = TextEditingController();
+  final TextEditingController _textEditingController2 = TextEditingController();
+  final TextEditingController _textEditingController3 = TextEditingController();
 
   @override
   // Figma Flutter Generator ScrolloptionsWidget - GROUP
@@ -30,7 +25,7 @@ class CreateChallengeState extends State<CreateChallenge> {
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 247, 246, 1),
           title: const Text(
-            'Create A Challenge',
+            'Craft A New Challenge',
             style: TextStyle(
               color: Color.fromRGBO(5, 19, 6, 1),
               fontFamily: 'Roboto',
@@ -261,130 +256,115 @@ class CreateChallengeState extends State<CreateChallenge> {
             ),
             //challenge name card ends
 
-            //likes to section begins
+            //text fields begin
+
             Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: 20.0,
-                top: 5.0,
-                bottom: 8.0,
-              ),
-              child: Text(
-                'Amy likes to',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Roboto',
-                  letterSpacing: 0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.all(14.0),
               child: Container(
-                height: 140, // Adjust the height as per your requirement
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: likes.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    Interests interest = likes[index];
-                    return InterestsFormatter(interest);
-                  },
+                height: 300,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: TextField(
+                            controller: _textEditingController1,
+                            decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide:
+                                        BorderSide(color: Colors.green)),
+                                filled: true,
+                                fillColor: Color.fromRGBO(232, 224, 222, 1),
+                                hintText: 'Enter the title...',
+                                hintStyle: TextStyle(color: Colors.black),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: BorderSide.none)),
+                            style: TextStyle(color: Colors.black),
+                            textAlignVertical: TextAlignVertical.center)),
+                    SizedBox(height: 2.0),
+                    Expanded(
+                        flex: 2,
+                        child: TextField(
+                          controller: _textEditingController2,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide(color: Colors.green)),
+                            filled: true,
+                            fillColor: Color.fromRGBO(232, 224, 222, 1),
+                            hintText: 'Add a description...',
+                            hintStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide.none),
+                          ),
+                          style: TextStyle(color: Colors.black),
+                          textAlignVertical: TextAlignVertical.center,
+                        )),
+                    Container(
+                        width: 340,
+                        height: 50,
+                        padding: const EdgeInsets.only(left: 150, right: 0),
+                        child: TextField(
+                          controller: _textEditingController3,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide(color: Colors.green)),
+                            filled: true,
+                            fillColor: Color.fromRGBO(232, 224, 222, 1),
+                            hintText: 'Set Points...',
+                            hintStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide.none),
+                          ),
+                          style: TextStyle(color: Colors.black, fontSize: 16),
+                          textAlignVertical: TextAlignVertical.center,
+                        )),
+                    SizedBox(height: 20),
+                    Container(
+                        width: 340,
+                        height: 50,
+                        padding: const EdgeInsets.only(left: 150, right: 0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color.fromRGBO(173, 193, 143, 1))),
+                          onPressed: () {
+                            // Perform an action with the entered text
+                            String text1 = _textEditingController1.text;
+                            String text2 = _textEditingController2.text;
+                            print('Text 1: $text1');
+                            print('Text 2: $text2');
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Send Challenge',
+                                  style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                                      SizedBox(width: 2),
+                              Icon(Icons.arrow_forward_ios_rounded ,
+                                  color: Colors.black, size: 30),
+                            ],
+                          ),
+                        )),
+                  ],
                 ),
               ),
             ),
-            //likes to section ends
 
-            //challenge templates begin
-            Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: 18.0,
-                top: 2.0,
-                bottom: 8.0,
-              ),
-              child: Text(
-                'Suggested Challenge Templates',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Roboto',
-                  letterSpacing: 0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Container(
-                height: 140, // Adjust the height as per your requirement
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: items.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    ChallengeTemplates challenge = items[index];
-                    return ChallengeFormatter(challenge);
-                  },
-                ),
-              ),
-            ),
-            //challenge templates end
+            //text fields end
 
-            //craft a challenge begins
+            //points begins
 
-            Padding(
-              padding: const EdgeInsetsDirectional.only(start: 18.0, top: 0.0),
-              child: Text(
-                'Feeling Innovative?',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Roboto',
-                  letterSpacing: 0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            GestureDetector(
-                onTap: onPressed,
-                child: Container(
-                    width: 370,
-                    height: 55,
-                    child: Stack(children: <Widget>[
-                      Positioned(
-                          top: 5,
-                          left: 19,
-                          child: Container(
-                              width: 350,
-                              height: 45,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10),
-                                ),
-                                color: Color.fromRGBO(
-                                    116, 134, 88, 0.6100000143051147),
-                              ))),
-                      Positioned(
-                          top: 15,
-                          left: 112,
-                          child: Text(
-                            'Craft a New Challenge',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color.fromRGBO(0, 0, 0, 1),
-                                fontFamily: 'Roboto',
-                                fontSize: 16,
-                                letterSpacing:
-                                    0 /*percentages not used in flutter. defaulting to zero*/,
-                                fontWeight: FontWeight.bold,
-                                height: 1.5 /*PERCENT not supported*/
-                                ),
-                          )),
-                    ])))
-
-            //craft a challenge ends
+            //points ends
           ],
         ),
         bottomNavigationBar: const BottomNav());

@@ -76,6 +76,10 @@ flutter:
     - assets/images/brad.png
     - assets/images/max.png
     - assets/images/johnW.png
+    - assets/images/musicicon.png
+    - assets/images/gymicon.png
+    - assets/images/footballicon.png
+    - assets/images/skateicon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
