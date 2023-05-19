@@ -7,17 +7,25 @@ import 'package:motify/challengeAfriend/interests.dart';
 import 'package:motify/challengeAfriend/interests_formatter.dart';
 import 'package:motify/common_widgets/bottom_nav.dart';
 
-class CraftChallenge extends StatefulWidget {
-  const CraftChallenge({Key? key}) : super(key: key);
+class Hiking extends StatefulWidget {
+  const Hiking({Key? key}) : super(key: key);
 
   @override
-  State<CraftChallenge> createState() => CraftChallengeState();
+  State<Hiking> createState() => HikingState();
 }
 
-class CraftChallengeState extends State<CraftChallenge> {
-  final TextEditingController _textEditingController1 = TextEditingController();
-  final TextEditingController _textEditingController2 = TextEditingController();
-  final TextEditingController _textEditingController3 = TextEditingController();
+class HikingState extends State<Hiking> {
+   TextEditingController _textEditingController1 = TextEditingController();
+   TextEditingController _textEditingController2 = TextEditingController();
+   TextEditingController _textEditingController3 = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController1 = TextEditingController(text: 'Hiking with a friend');
+    _textEditingController2 = TextEditingController(text: 'Break a leg! Your challenge is to have a gym session with a friend this week...');
+    _textEditingController3 = TextEditingController(text: '40');
+  }
 
   void _sendChallenge(BuildContext context) {
     String text1 = _textEditingController1.text;
@@ -78,7 +86,7 @@ class CraftChallengeState extends State<CraftChallenge> {
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 247, 246, 1),
           title: const Text(
-            'Craft A New Challenge',
+            'Craft A Challenge',
             style: TextStyle(
               color: Color.fromRGBO(5, 19, 6, 1),
               fontFamily: 'Roboto',

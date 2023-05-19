@@ -62,42 +62,57 @@ class ChallengeFormatter extends StatelessWidget {
 
           //use it button
           Padding(
-              padding: EdgeInsets.only(
-                top: 85,
-                left: 10
-                ),
+              padding: EdgeInsets.only(top: 85, left: 10, bottom:25),
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                    bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
-                  ),
-                  color: Color.fromRGBO(255, 248, 246, 1),
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4
-                  ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(
-                      'Use it!',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: Color.fromRGBO(31, 52, 39, 1),
-                          fontFamily: 'Roboto',
-                          fontSize: 12,
-                          letterSpacing:
-                              0 /*percentages not used in flutter. defaulting to zero*/,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
                     ),
-                  ],
-                ),
-              ))
+                    color: Color.fromRGBO(255, 248, 246, 1),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  child: TextButton(
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        maximumSize: MaterialStateProperty.all(Size(70, 40)),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 0.0, horizontal: 0.0),
+                          child: Text("Use it!",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(31, 52, 39, 1),
+                                  fontFamily: 'Roboto',
+                                  fontSize: 14,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal
+                                  ))),
+                      onPressed: () {
+                        Navigator.pushNamed(context, challenge.template);
+                      })
+
+                  // Row(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   children: <Widget>[
+                  //     Text(
+                  //       'Use it!',
+                  //       textAlign: TextAlign.left,
+                  //       style: TextStyle(
+                  //           color: Color.fromRGBO(31, 52, 39, 1),
+                  //           fontFamily: 'Roboto',
+                  //           fontSize: 12,
+                  //           letterSpacing:
+                  //               0 /*percentages not used in flutter. defaulting to zero*/,
+                  //           fontWeight: FontWeight.normal,
+                  //           height: 1),
+                  //     ),
+                  //   ],
+                  // ),
+                  ))
         ]));
   }
 }

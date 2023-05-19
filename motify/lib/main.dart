@@ -1,3 +1,7 @@
+import 'package:motify/challengeAfriend/Gymming.dart';
+import 'package:motify/challengeAfriend/Hiking.dart';
+import 'package:motify/challengeAfriend/Reading.dart';
+import 'package:motify/challengeAfriend/Swimming.dart';
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:flutter/material.dart';
 import 'package:motify/homepage/home_page.dart';
@@ -13,12 +17,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+        //routes
+
+        routes: {
+          '/Gymming': (context) => Gymming(),
+          '/Hiking': (context) => Hiking(),
+          '/Reading': (context) => Reading(),
+          '/Swimming': (context) => Swimming(),
+        });
   }
 }
 
@@ -32,8 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +67,8 @@ class MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage(),
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
                     ),
                   );
                 },
