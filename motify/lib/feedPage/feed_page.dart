@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/challengeAfriend/create_challenge.dart';
 import 'package:motify/feedPage/amy_widget.dart';
 import 'package:motify/feedPage/john_widget.dart';
 import 'package:motify/feedPage/jacob_widget.dart';
@@ -36,14 +37,14 @@ class FeedPageState extends State<FeedPage> {
       body: SingleChildScrollView(
         child: Container(
           width: 390,
-          height: 1300,
+          height: 1400,
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Column(
               children: const <Widget>[
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: AmyPost(),
                   ),
@@ -54,7 +55,7 @@ class FeedPageState extends State<FeedPage> {
                 ),
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: JohnPost(),
                   ),
@@ -65,7 +66,7 @@ class FeedPageState extends State<FeedPage> {
                 ),
                 SizedBox(
                   width: 340,
-                  height: 400,
+                  height: 425,
                   child: Center(
                     child: JacobPost(),
                   ),

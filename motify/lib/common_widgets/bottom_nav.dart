@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/challengeAfriend/create_challenge.dart';
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:motify/homePage/home_page.dart';
 import 'package:motify/create_challenge/search_friends.dart';
@@ -44,6 +45,7 @@ class BottomNavState extends State<BottomNav> {
                   context,
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) => const SearchFriends(),
+                    //pageBuilder: (context, animation, secondaryAnimation) => const CreateChallenge(),
                     transitionsBuilder: (context, animation, secondaryAnimation, child) {
                       return child; // Return the child directly without any transition animation
                     },

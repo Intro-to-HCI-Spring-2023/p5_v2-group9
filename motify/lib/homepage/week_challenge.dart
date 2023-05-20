@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/feedPage/feed_page.dart';
 
 class WeekChallenge extends StatefulWidget {
   const WeekChallenge({Key? key});
@@ -93,6 +94,13 @@ class WeekChallengeState extends State<WeekChallenge> {
                       ),
                       child: TextButton(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+                              transitionDuration: Duration.zero,
+                            ),
+                          );
                           // Button onPressed logic goes here
                         },
                         child: const Text(
@@ -103,7 +111,7 @@ class WeekChallengeState extends State<WeekChallenge> {
                             fontFamily: 'Roboto',
                             fontSize: 12,
                             letterSpacing: 0,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,
                             height: 1,
                           ),
                         ),
