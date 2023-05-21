@@ -81,12 +81,115 @@ class _SearchFriendsState extends State<SearchFriends> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ProfileInfo(),
                 Padding(
-                  padding: const EdgeInsets.only(top: 25, left: 20),
-                  child: Container(
-                    width: 336,
-                    height: 120,
+              padding: const EdgeInsetsDirectional.only(
+                //start: 16.0,
+                top: 8.0,
+                bottom: 8.0,
+              ),
+              child: Container(
+                width: 360,
+                height: 92,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 330,
+                      height: 92,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xffc3d3aa),
+                      ),
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        top: 18,
+                        bottom: 19,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 300,
+                            height: 55,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 55,
+                                  height: 55,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(90),
+                                  ),
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                        AssetImage('assets/images/hunter.png'),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 7,
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                          child: Text(
+                                        'Hunter Jackson',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            height: 1),
+                                      )),
+                                      Positioned(
+                                          child: Text(
+                                        '\n110 points',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1.5),
+                                      ))
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+
+                //ProfileInfo(),
+
+                Padding(
+              padding: const EdgeInsetsDirectional.only(
+                //start: 16.0,
+                top: 8.0,
+                bottom: 8.0,
+              ),
+              child: Container(
+                width: 360,
+                height: 92,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Container(
+                    width: 330,
+                    height: 92,
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     
                     child: Dropdown(),
@@ -100,11 +203,11 @@ class _SearchFriendsState extends State<SearchFriends> {
                       ),
                       color: const Color.fromARGB(255, 195, 211, 171),
                     ),
-                  ),
-                ),
-              ],
+                  ),]
+                ), 
             ),
           ),
+              ]
           // Column(
           //   crossAxisAlignment: CrossAxisAlignment.start,
           //   children: const [
@@ -116,7 +219,10 @@ class _SearchFriendsState extends State<SearchFriends> {
           // ),
         ),
       ),
+        ),
+      ),
       bottomNavigationBar: const BottomNav(),
+      
     );
   }
 }
