@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:motify/feedPage/feed_page.dart';
 import 'package:motify/completeAchallenge/completeWeekChallenge.dart';
 
-class WeekChallenge extends StatefulWidget {
-  const WeekChallenge({Key? key});
+class newWeekChallenge extends StatefulWidget {
+  const newWeekChallenge({Key? key});
 
   @override
-  WeekChallengeState createState() => WeekChallengeState();
+  newWeekChallengeState createState() => newWeekChallengeState();
 }
 
-class WeekChallengeState extends State<WeekChallenge> {
+class newWeekChallengeState extends State<newWeekChallenge> {
   bool isCompleted = false;
   @override
   Widget build(BuildContext context) {
@@ -38,24 +38,15 @@ class WeekChallengeState extends State<WeekChallenge> {
                             bottomRight: Radius.circular(15),
                           ),
                           color: const Color.fromRGBO(54, 85, 71, 1),
-                          image: DecorationImage(
-                            image: const AssetImage('assets/images/stroll.png'),
-                            fit: BoxFit.fitWidth,
-                            colorFilter: ColorFilter.mode(
-                              const Color.fromRGBO(54, 85, 71, 1).withOpacity(
-                                  .65), // Apply the intense green hue here
-                              BlendMode.srcATop,
-                            ),
-                          ),
                         ),
                       ),
                     ),
                     const Positioned(
-                      top: 12.5,
-                      left: 15,
+                      top: 40,
+                      left: 90,
                       child: Text(
-                        'Go for a stroll',
-                        textAlign: TextAlign.left,
+                        'Challenge completed!',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Lora',
@@ -67,11 +58,11 @@ class WeekChallengeState extends State<WeekChallenge> {
                       ),
                     ),
                     const Positioned(
-                      top: 36.25,
-                      left: 15,
+                      top: 70,
+                      left: 107,
                       child: Text(
-                        '50 points',
-                        textAlign: TextAlign.left,
+                        'Come back next week',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Lora',
@@ -79,45 +70,6 @@ class WeekChallengeState extends State<WeekChallenge> {
                           letterSpacing: 0,
                           fontWeight: FontWeight.normal,
                           height: 1,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 85,
-                      left: 15,
-                      child: Container(
-                        width: 85,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(16.153846740722656),
-                          color: const Color.fromRGBO(255, 248, 246, 1),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        const CompleteWeekChallenge(),
-                                transitionDuration: Duration.zero,
-                              ),
-                            );
-                            // Button onPressed logic goes here
-                          },
-                          child: const Text(
-                            'Complete',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: Color.fromRGBO(54, 85, 71, 1),
-                              fontFamily: 'Roboto',
-                              fontSize: 12,
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.bold,
-                              height: 1,
-                            ),
-                          ),
                         ),
                       ),
                     ),
