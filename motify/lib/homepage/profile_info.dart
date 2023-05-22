@@ -57,7 +57,7 @@ class ProfileInfoState extends State<ProfileInfo> {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    '60 points',
+                    '110 points',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Color.fromRGBO(5, 19, 6, 1),
