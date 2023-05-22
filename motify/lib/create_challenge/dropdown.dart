@@ -26,7 +26,7 @@ class DropdownState extends State<Dropdown> {
   Widget build(BuildContext context) {
     return Center(
         child: Container(
-      width: 320,
+      width: 355,
       height: 80,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -48,8 +48,10 @@ class DropdownState extends State<Dropdown> {
             // iconDisabledColor: true,
             style: const TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontSize: 20,
-                fontWeight: FontWeight.bold),
+                fontSize: 16,
+                fontFamily: "Roboto",
+                //fontWeight: FontWeight.bold
+                ),
 
             // Array list of items
             items: items.map((String items) {

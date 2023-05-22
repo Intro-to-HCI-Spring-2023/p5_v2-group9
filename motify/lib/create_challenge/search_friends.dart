@@ -79,13 +79,14 @@ class _SearchFriendsState extends State<SearchFriends> {
           padding: const EdgeInsets.only(top: 5),
           child: Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
               padding: const EdgeInsetsDirectional.only(
-                //start: 16.0,
+                start: 0.0,
                 top: 8.0,
-                bottom: 8.0,
+                bottom: 16.0,
+          
               ),
               child: Container(
                 width: 360,
@@ -96,7 +97,7 @@ class _SearchFriendsState extends State<SearchFriends> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 330,
+                      width: 355,
                       height: 92,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -113,7 +114,7 @@ class _SearchFriendsState extends State<SearchFriends> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: 300,
+                            width: 320,
                             height: 55,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -177,7 +178,7 @@ class _SearchFriendsState extends State<SearchFriends> {
                 Padding(
               padding: const EdgeInsetsDirectional.only(
                 //start: 16.0,
-                top: 8.0,
+                //top: 8.0,
                 bottom: 8.0,
               ),
               child: Container(
@@ -188,7 +189,7 @@ class _SearchFriendsState extends State<SearchFriends> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [Container(
-                    width: 330,
+                    width: 355,
                     height: 92,
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     
