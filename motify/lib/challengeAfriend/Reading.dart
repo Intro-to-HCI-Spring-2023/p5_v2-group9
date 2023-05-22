@@ -6,6 +6,10 @@ import 'package:motify/challengeAfriend/create_challenge.dart';
 import 'package:motify/challengeAfriend/interests.dart';
 import 'package:motify/challengeAfriend/interests_formatter.dart';
 import 'package:motify/common_widgets/bottom_nav.dart';
+import 'dart:io';
+import 'dart:math';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Reading extends StatefulWidget {
   const Reading({Key? key}) : super(key: key);
@@ -15,6 +19,41 @@ class Reading extends StatefulWidget {
 }
 
 class ReadingState extends State<Reading> {
+
+  File? image;
+  bool def = true;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+
+      setState(() => this.image = imageTemp);
+      this.def = false;
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future pickImageC() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+
+      setState(() => this.image = imageTemp);
+      this.def = false;
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+
    TextEditingController _textEditingController1 = TextEditingController();
    TextEditingController _textEditingController2 = TextEditingController();
    TextEditingController _textEditingController3 = TextEditingController();
@@ -322,12 +361,11 @@ class ReadingState extends State<Reading> {
             Padding(
               padding: EdgeInsets.all(14.0),
               child: Container(
-                height: 300,
+                height: 210,
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                        flex: 1,
+                    Container(
                         child: TextField(
                             controller: _textEditingController1,
                             decoration: InputDecoration(
@@ -344,72 +382,26 @@ class ReadingState extends State<Reading> {
                                     borderSide: BorderSide.none)),
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.center)),
-                    SizedBox(height: 2.0),
-                    Expanded(
-                        flex: 2,
-                        child: TextField(
-                          controller: _textEditingController2,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide(color: Colors.green)),
-                            filled: true,
-                            fillColor: Color.fromRGBO(232, 224, 222, 1),
-                            hintText: 'Add a description...',
-                            hintStyle: TextStyle(color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide.none),
-                          ),
-                          style: TextStyle(color: Colors.black),
-                          textAlignVertical: TextAlignVertical.center,
-                        )),
+                    SizedBox(height: 10.0),
                     Container(
-                        width: 340,
-                        height: 50,
-                        padding: const EdgeInsets.only(left: 150, right: 0),
                         child: TextField(
-                          controller: _textEditingController3,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide(color: Colors.green)),
-                            filled: true,
-                            fillColor: Color.fromRGBO(232, 224, 222, 1),
-                            hintText: 'Set Points...',
-                            hintStyle: TextStyle(color: Colors.black),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                                borderSide: BorderSide.none),
-                          ),
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                          textAlignVertical: TextAlignVertical.center,
-                        )),
-                    SizedBox(height: 20),
-                    Container(
-                        width: 340,
-                        height: 50,
-                        padding: const EdgeInsets.only(left: 150, right: 0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromRGBO(173, 193, 143, 1))),
-                          onPressed: () => _sendChallenge(context),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Send Challenge',
-                                  style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                                      SizedBox(width: 2),
-                              Icon(Icons.arrow_forward_ios_rounded ,
-                                  color: Colors.black, size: 30),
-                            ],
-                          ),
-                        )),
+                      maxLines: 5,
+                      controller: _textEditingController2,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide(color: Colors.green)),
+                        filled: true,
+                        fillColor: Color.fromRGBO(232, 224, 222, 1),
+                        hintText: 'Add a description...',
+                        hintStyle: TextStyle(color: Colors.black),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none),
+                      ),
+                      style: TextStyle(color: Colors.black),
+                      textAlignVertical: TextAlignVertical.center,
+                    )),
                   ],
                 ),
               ),
@@ -417,9 +409,137 @@ class ReadingState extends State<Reading> {
 
             //text fields end
 
-            //points begins
-
-            //points ends
+            //image begins
+            Padding(
+                padding: EdgeInsetsDirectional.only(start: 16.0),
+                child: Row(
+                  children: [
+                    if (this.def == true)
+                      GestureDetector(
+                          child: Container(
+                            // Image
+                            padding: const EdgeInsets.only(left: 0, right: 0),
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      image : DecorationImage(
+                                        image: AssetImage('assets/images/readingchallenge.jpeg'),
+                                        fit: BoxFit.fill
+                                        )
+                            ),
+                        ),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                      title: const Text("Select Image"),
+                                      //content:  const Text("Hey! I'm onLongPress event"),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: Text('Photo from Gallery'),
+                                          onPressed: () {
+                                            pickImage();
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: Text('Photo from Camera'),
+                                          onPressed: () {
+                                            pickImageC();
+                                          },
+                                        ),
+                                      ],
+                                    ));
+                          }),
+                    if (this.def == false)
+                      GestureDetector(
+                          child: Container(
+                              padding: const EdgeInsets.only(left: 0, right: 0),
+                              width: 150,
+                              height: 150,
+                              child: image != null
+                                  ? Image.file(
+                                      image!,
+                                      width: 150,
+                                      height: 150,
+                                    )
+                                  : Text("No image selected")),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                      title: const Text("Select Image"),
+                                      //content:  const Text("Hey! I'm onLongPress event"),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: Text('Photo from Gallery'),
+                                          onPressed: () {
+                                            pickImage();
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: Text('Photo from Camera'),
+                                          onPressed: () {
+                                            pickImageC();
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                      ],
+                                    ));
+                          }),
+                    SizedBox(width: 15),
+                    Column(children: [
+                      Container(
+                          width: 190,
+                          height: 80,
+                          // padding: const EdgeInsets.only(left: 170, right: 0),
+                          child: TextField(
+                            controller: _textEditingController3,
+                            decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderSide: BorderSide(color: Colors.green)),
+                              filled: true,
+                              fillColor: Color.fromRGBO(232, 224, 222, 1),
+                              hintText: 'Set Points...',
+                              hintStyle: TextStyle(color: Colors.black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderSide: BorderSide.none),
+                            ),
+                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            textAlignVertical: TextAlignVertical.center,
+                          )),
+                      Container(
+                          width: 190,
+                          height: 60,
+                          // padding: const EdgeInsets.only(left: 170, right: 0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(173, 193, 143, 1))),
+                            onPressed: () => _sendChallenge(context),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('Send Challenge',
+                                    style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(width: 2),
+                                Icon(Icons.arrow_forward_ios_rounded,
+                                    color: Colors.black, size: 30),
+                              ],
+                            ),
+                          ))
+                    ])
+                  ],
+                ))
+            //image ends
           ],
         ),
         bottomNavigationBar: const BottomNav());
