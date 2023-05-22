@@ -83,6 +83,11 @@ flutter:
     - assets/images/footballicon.png
     - assets/images/skateicon.png
     - assets/images/motify.png
+    - assets/images/gymchallenge.jpeg
+    - assets/images/hikingchallenge.jpeg
+    - assets/images/swimmingchallenge.jpeg
+    - assets/images/readingchallenge.jpeg
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
