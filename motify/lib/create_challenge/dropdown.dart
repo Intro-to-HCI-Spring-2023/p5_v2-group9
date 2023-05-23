@@ -16,9 +16,9 @@ class DropdownState extends State<Dropdown> {
     'Select a friend',
     'Amy',
     'John',
-    'Jacob',
-    'Daniel',
-    'Larry',
+    'Ravi',
+    'Victoria',
+    'Jessica',
     'Gibson',
   ];
 
@@ -101,7 +101,7 @@ class DropdownState extends State<Dropdown> {
                     PageRouteBuilder(
                       // pageBuilder: (context, animation, secondaryAnimation) => const SearchFriends(),
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          CreateChallenge(),
+                          CreateChallenge(friendName: dropdownvalue),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
                         return child; // Return the child directly without any transition animation
