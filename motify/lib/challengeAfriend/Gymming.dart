@@ -22,6 +22,7 @@ class GymmingState extends State<Gymming> {
 
     File? image;
   bool def = true;
+  
 
   Future pickImage() async {
     try {
@@ -66,6 +67,7 @@ class GymmingState extends State<Gymming> {
   }
 
   void _sendChallenge(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     String text1 = _textEditingController1.text;
                             String text2 = _textEditingController2.text;
                             String text3 = _textEditingController3.text;
@@ -76,6 +78,7 @@ class GymmingState extends State<Gymming> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        
          return AlertDialog(
           alignment: Alignment.center,
           titleTextStyle: TextStyle(
@@ -83,7 +86,7 @@ class GymmingState extends State<Gymming> {
             fontSize: 16,
             color: Colors.black
             ),
-          title: Text('Challenge '+ '`' +text1 + '`'  + 'sent to Amy!'),
+          title: Text('Challenge '+ '`' +text1 + '`'  + 'sent to '+ friendName+'!'), //ChangesMade
           // contentTextStyle: TextStyle(
           //   fontFamily: 'Roboto',
           //   fontSize: 14,
@@ -95,7 +98,7 @@ class GymmingState extends State<Gymming> {
               onPressed: () {
                 Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => CreateChallenge()),
+      MaterialPageRoute(builder: (context) => CreateChallenge(friendName: friendName,)), //ChangesMade
     );
               },
               child: Text(
@@ -120,6 +123,7 @@ class GymmingState extends State<Gymming> {
   @override
   // Figma Flutter Generator ScrolloptionsWidget - GROUP
   Widget build(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 247, 246, 1),
@@ -310,7 +314,8 @@ class GymmingState extends State<Gymming> {
                                     children: [
                                       Positioned(
                                           child: Text(
-                                        'Amy',
+                                        //'Amy', //ChangesMade
+                                        friendName, //ChangesMade
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
@@ -339,7 +344,8 @@ class GymmingState extends State<Gymming> {
                                     ),
                                     child: CircleAvatar(
                                       backgroundImage:
-                                          AssetImage('assets/images/amy.avif'),
+                                          //AssetImage('assets/images/amy.avif'), // ChangeMade
+                                          getImageByName(friendName), // ChangeMade
                                     ),
                                   ),
                                 ],
@@ -544,5 +550,15 @@ class GymmingState extends State<Gymming> {
           ],
         ),
         bottomNavigationBar: const BottomNav());
+  }
+}
+
+AssetImage getImageByName(String imageName) {
+  if (imageName == 'Amy' || imageName=='Victoria' || imageName=='Jessica') {
+    return AssetImage('assets/images/amy.avif');
+                                          
+  } else {
+    // Default image
+    return AssetImage('assets/images/ravi.jpeg');
   }
 }

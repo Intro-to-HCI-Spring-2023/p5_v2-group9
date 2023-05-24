@@ -66,6 +66,7 @@ class HikingState extends State<Hiking> {
   }
 
   void _sendChallenge(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     String text1 = _textEditingController1.text;
                             String text2 = _textEditingController2.text;
                             String text3 = _textEditingController3.text;
@@ -83,7 +84,7 @@ class HikingState extends State<Hiking> {
             fontSize: 16,
             color: Colors.black
             ),
-          title: Text('Challenge '+ '`' +text1 + '`'  + 'sent to Amy!'),
+          title: Text('Challenge '+ '`' +text1 + '`'  + 'sent to '+ friendName+'!'), //ChangesMade
           // contentTextStyle: TextStyle(
           //   fontFamily: 'Roboto',
           //   fontSize: 14,
@@ -95,7 +96,7 @@ class HikingState extends State<Hiking> {
               onPressed: () {
                 Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => CreateChallenge()),
+      MaterialPageRoute(builder: (context) => CreateChallenge(friendName: friendName,)), //ChangesMade
     );
               },
               child: Text(
@@ -120,6 +121,7 @@ class HikingState extends State<Hiking> {
   @override
   // Figma Flutter Generator ScrolloptionsWidget - GROUP
   Widget build(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 247, 246, 1),
@@ -310,7 +312,8 @@ class HikingState extends State<Hiking> {
                                     children: [
                                       Positioned(
                                           child: Text(
-                                        'Amy',
+                                        //'Amy', //ChangesMade
+                                        friendName, //ChangesMade
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
@@ -339,7 +342,8 @@ class HikingState extends State<Hiking> {
                                     ),
                                     child: CircleAvatar(
                                       backgroundImage:
-                                          AssetImage('assets/images/amy.avif'),
+                                          //AssetImage('assets/images/amy.avif'), // ChangeMade
+                                          getImageByName(friendName), // ChangeMade
                                     ),
                                   ),
                                 ],
@@ -543,5 +547,15 @@ class HikingState extends State<Hiking> {
           ],
         ),
         bottomNavigationBar: const BottomNav());
+  }
+}
+
+AssetImage getImageByName(String imageName) {
+  if (imageName == 'Amy' || imageName=='Victoria' || imageName=='Jessica') {
+    return AssetImage('assets/images/amy.avif');
+                                          
+  } else {
+    // Default image
+    return AssetImage('assets/images/ravi.jpeg');
   }
 }

@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'challenge_templates.dart';
 
 class ChallengeFormatter extends StatelessWidget {
+  
   final ChallengeTemplates challenge;
+  final String friendName;  //ChangesMade
 
-  ChallengeFormatter(this.challenge);
+  // ChallengeFormatter(this.challenge); //// ChangesMade
+  const ChallengeFormatter({Key? key, required this.challenge, required this.friendName}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +95,8 @@ class ChallengeFormatter extends StatelessWidget {
                                   fontWeight: FontWeight.normal
                                   ))),
                       onPressed: () {
-                        Navigator.pushNamed(context, challenge.template);
+                        print("This button is just pressed!");
+                        Navigator.pushNamed(context, challenge.template, arguments: this.friendName); //ChangesMade
                       })
 
                   // Row(
