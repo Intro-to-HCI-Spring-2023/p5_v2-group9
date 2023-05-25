@@ -62,7 +62,7 @@ class SwimmingState extends State<Swimming> {
   void initState() {
     super.initState();
     _textEditingController1 = TextEditingController(text: 'Swim 10 laps');
-    _textEditingController2 = TextEditingController(text: 'Break a leg! Your challenge is to have a gym session with a friend this week...');
+    _textEditingController2 = TextEditingController(text: 'Let\'s go! Your challenge this week is to go to the alumni swimming pool and swim 10 laps. Can\'t wait to hear about how it goes!');
     _textEditingController3 = TextEditingController(text: '50');
   }
 

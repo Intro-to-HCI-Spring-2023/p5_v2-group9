@@ -94,24 +94,7 @@ class ChallengeFormatter extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, challenge.template);
                       })
-
-                  // Row(
-                  //   mainAxisSize: MainAxisSize.min,
-                  //   children: <Widget>[
-                  //     Text(
-                  //       'Use it!',
-                  //       textAlign: TextAlign.left,
-                  //       style: TextStyle(
-                  //           color: Color.fromRGBO(31, 52, 39, 1),
-                  //           fontFamily: 'Roboto',
-                  //           fontSize: 12,
-                  //           letterSpacing:
-                  //               0 /*percentages not used in flutter. defaulting to zero*/,
-                  //           fontWeight: FontWeight.normal,
-                  //           height: 1),
-                  //     ),
-                  //   ],
-                  // ),
+                      
                   ))
         ]));
   }
