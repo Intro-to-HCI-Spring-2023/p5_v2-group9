@@ -61,7 +61,7 @@ class HikingState extends State<Hiking> {
   void initState() {
     super.initState();
     _textEditingController1 = TextEditingController(text: 'Hiking with a friend');
-    _textEditingController2 = TextEditingController(text: 'Break a leg! Your challenge is to have a gym session with a friend this week...');
+    _textEditingController2 = TextEditingController(text: 'Break a leg! Your challenge is to go on a nearby hike with a friend ...');
     _textEditingController3 = TextEditingController(text: '40');
   }
 
