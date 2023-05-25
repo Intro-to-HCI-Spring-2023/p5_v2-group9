@@ -67,6 +67,7 @@ class ReadingState extends State<Reading> {
   }
 
   void _sendChallenge(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     String text1 = _textEditingController1.text;
     String text2 = _textEditingController2.text;
     String text3 = _textEditingController3.text;
@@ -80,8 +81,11 @@ class ReadingState extends State<Reading> {
         return AlertDialog(
           alignment: Alignment.center,
           titleTextStyle: TextStyle(
-              fontFamily: 'Roboto', fontSize: 16, color: Colors.black),
-          title: Text('Challenge ' + '`' + text1 + '`' + 'sent to Amy!'),
+            fontFamily: 'Roboto',
+            fontSize: 16,
+            color: Colors.black
+            ),
+          title: Text('Challenge '+ '`' +text1 + '`'  + 'sent to '+ friendName+'!'), //ChangesMade
           // contentTextStyle: TextStyle(
           //   fontFamily: 'Roboto',
           //   fontSize: 14,
@@ -90,19 +94,25 @@ class ReadingState extends State<Reading> {
           // content: Text('sent to Amy'),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CreateChallenge()),
-                  );
-                },
-                child: Text('OK',
-                    style:
-                        TextStyle(fontFamily: 'Roboto', color: Colors.black)),
-                style: ButtonStyle(
-                    alignment: Alignment.bottomCenter,
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(173, 193, 143, 1)))),
+              onPressed: () {
+                Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CreateChallenge(friendName: friendName,)), //ChangesMade
+    );
+              },
+              child: Text(
+                'OK',
+                style : TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.black 
+                  )
+                ),
+              style: ButtonStyle(
+                alignment: Alignment.bottomCenter,
+                backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color.fromRGBO(173, 193, 143, 1))
+                                  )
+            ),
           ],
         );
       },
@@ -112,6 +122,7 @@ class ReadingState extends State<Reading> {
   @override
   // Figma Flutter Generator ScrolloptionsWidget - GROUP
   Widget build(BuildContext context) {
+    final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 247, 246, 1),
@@ -302,7 +313,8 @@ class ReadingState extends State<Reading> {
                                     children: [
                                       Positioned(
                                           child: Text(
-                                        'Amy',
+                                        //'Amy', //ChangesMade
+                                        friendName, //ChangesMade
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
@@ -331,7 +343,8 @@ class ReadingState extends State<Reading> {
                                     ),
                                     child: CircleAvatar(
                                       backgroundImage:
-                                          AssetImage('assets/images/amy.avif'),
+                                          //AssetImage('assets/images/amy.avif'), // ChangeMade
+                                          getImageByName(friendName), // ChangeMade
                                     ),
                                   ),
                                 ],
@@ -533,5 +546,15 @@ class ReadingState extends State<Reading> {
           ],
         ),
         bottomNavigationBar: const BottomNav());
+  }
+}
+
+AssetImage getImageByName(String imageName) {
+  if (imageName == 'Amy' || imageName=='Victoria' || imageName=='Jessica') {
+    return AssetImage('assets/images/amy.avif');
+                                          
+  } else {
+    // Default image
+    return AssetImage('assets/images/ravi.jpeg');
   }
 }

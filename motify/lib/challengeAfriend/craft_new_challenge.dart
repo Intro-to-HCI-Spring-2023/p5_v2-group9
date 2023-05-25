@@ -12,7 +12,8 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CraftChallenge extends StatefulWidget {
-  const CraftChallenge({Key? key}) : super(key: key);
+  const CraftChallenge({Key? key, required this.friendName}) : super(key: key);
+  final String friendName;
 
   @override
   State<CraftChallenge> createState() => CraftChallengeState();
@@ -71,7 +72,7 @@ class CraftChallengeState extends State<CraftChallenge> {
           alignment: Alignment.center,
           titleTextStyle: TextStyle(
               fontFamily: 'Roboto', fontSize: 16, color: Colors.black),
-          title: Text('Challenge ' + '`' + text1 + '`' + 'sent to Amy!'),
+          title: Text('Challenge ' + '`' + text1 + '`' + 'sent to '+widget.friendName+'!'),
           // contentTextStyle: TextStyle(
           //   fontFamily: 'Roboto',
           //   fontSize: 14,
@@ -83,7 +84,7 @@ class CraftChallengeState extends State<CraftChallenge> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateChallenge()),
+                    MaterialPageRoute(builder: (context) => CreateChallenge(friendName: widget.friendName,)),
                   );
                 },
                 child: Text('OK',
@@ -292,7 +293,8 @@ class CraftChallengeState extends State<CraftChallenge> {
                                     children: [
                                       Positioned(
                                           child: Text(
-                                        'Amy',
+                                        // 'Amy', //ChangesMade
+                                        widget.friendName, //ChangesMade
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
@@ -321,7 +323,8 @@ class CraftChallengeState extends State<CraftChallenge> {
                                     ),
                                     child: CircleAvatar(
                                       backgroundImage:
-                                          AssetImage('assets/images/amy.avif'),
+                                          //AssetImage('assets/images/amy.avif'), // ChangeMade
+                                          getImageByName(widget.friendName), // ChangeMade
                                     ),
                                   ),
                                 ],
@@ -526,5 +529,15 @@ class CraftChallengeState extends State<CraftChallenge> {
           ],
         ),
         bottomNavigationBar: const BottomNav());
+  }
+}
+
+AssetImage getImageByName(String imageName) {
+  if (imageName == 'Amy' || imageName=='Victoria' || imageName=='Jessica') {
+    return AssetImage('assets/images/amy.avif');
+                                          
+  } else {
+    // Default image
+    return AssetImage('assets/images/ravi.jpeg');
   }
 }
