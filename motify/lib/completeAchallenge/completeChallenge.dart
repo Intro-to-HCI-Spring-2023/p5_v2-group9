@@ -208,7 +208,17 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                         context: context,
                         builder: (BuildContext context) {
                           return CupertinoAlertDialog(
-                            title: Text("Success"),
+                            title: Text(
+                              "Successfully Completed",
+                              style: TextStyle(
+                                color: Color.fromRGBO(5, 19, 6, 1),
+                                fontFamily: 'Roboto',
+                                fontSize: 17,
+                                letterSpacing: 0,
+                                fontWeight: FontWeight.bold,
+                                height: 1,
+                              ),
+                            ),
                             actions: <Widget>[
                               Container(
                                 width: double.maxFinite,
