@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motify/feedPage/feed_page.dart';
+import 'package:motify/completeAchallenge/completeChallenge.dart';
 
 class ChallengeInvites extends StatefulWidget {
   const ChallengeInvites({Key? key}) : super(key: key);
@@ -103,12 +104,13 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
 
     return GestureDetector(
       onTap: () {
-  // Navigate to the desired screen based on the index or any other logic
+        // Navigate to the desired screen based on the index or any other logic
         if (index == 0) {
           Navigator.push(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CompleteChallenge(ChallengeName: title),
               transitionDuration: Duration.zero,
             ),
           );
@@ -116,7 +118,8 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
           Navigator.push(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CompleteChallenge(ChallengeName: title),
               transitionDuration: Duration.zero,
             ),
           );
@@ -124,7 +127,8 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
           Navigator.push(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CompleteChallenge(ChallengeName: title),
               transitionDuration: Duration.zero,
             ),
           );
@@ -132,13 +136,13 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
           Navigator.push(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  CompleteChallenge(ChallengeName: title),
               transitionDuration: Duration.zero,
             ),
           );
         }
       },
-
       child: Container(
         width: 127,
         height: 110,
@@ -150,7 +154,8 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                 width: 127,
                 height: 110,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.219942092895508)),
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(15.219942092895508)),
                   color: color, // Use the provided color parameter
                 ),
               ),
@@ -203,7 +208,9 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  CompleteChallenge(ChallengeName: title),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -211,7 +218,9 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  CompleteChallenge(ChallengeName: title),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -219,7 +228,9 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  CompleteChallenge(ChallengeName: title),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -227,12 +238,13 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const FeedPage(),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  CompleteChallenge(ChallengeName: title),
                           transitionDuration: Duration.zero,
                         ),
                       );
                     }
-                
                   },
                   child: const Text(
                     'Complete',
@@ -255,4 +267,3 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
     );
   }
 }
-

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motify/feedPage/feed_page.dart';
-import 'package:motify/completeAchallenge/completeWeekChallenge.dart';
+import 'package:motify/completeAchallenge/completeChallenge.dart';
 
 class WeekChallenge extends StatefulWidget {
   const WeekChallenge({Key? key});
@@ -10,6 +10,7 @@ class WeekChallenge extends StatefulWidget {
 }
 
 class WeekChallengeState extends State<WeekChallenge> {
+  String challengeName = "Go for a stroll";
   bool isCompleted = false;
   @override
   Widget build(BuildContext context) {
@@ -50,11 +51,11 @@ class WeekChallengeState extends State<WeekChallenge> {
                         ),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       top: 12.5,
                       left: 15,
                       child: Text(
-                        'Go for a stroll',
+                        challengeName ?? '',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Colors.white,
@@ -100,7 +101,8 @@ class WeekChallengeState extends State<WeekChallenge> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        const CompleteWeekChallenge(),
+                                        CompleteChallenge(
+                                            ChallengeName: challengeName ?? ''),
                                 transitionDuration: Duration.zero,
                               ),
                             );

@@ -12,14 +12,16 @@ import 'package:motify/common_widgets/bottom_nav.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
-class CompleteWeekChallenge extends StatefulWidget {
-  const CompleteWeekChallenge({Key? key}) : super(key: key);
+class CompleteChallenge extends StatefulWidget {
+  const CompleteChallenge({Key? key, required this.ChallengeName})
+      : super(key: key);
+  final String ChallengeName;
 
   @override
-  State<CompleteWeekChallenge> createState() => CompleteWeekChallengeState();
+  State<CompleteChallenge> createState() => CompleteChallengeState();
 }
 
-class CompleteWeekChallengeState extends State<CompleteWeekChallenge> {
+class CompleteChallengeState extends State<CompleteChallenge> {
   File? image;
   bool def = true;
 
@@ -81,8 +83,8 @@ class CompleteWeekChallengeState extends State<CompleteWeekChallenge> {
             Container(
               //Heading
               padding: const EdgeInsets.all(20),
-              child: const Text(
-                "Go for a stroll",
+              child: Text(
+                widget.ChallengeName,
                 style: TextStyle(
                   color: Color.fromRGBO(5, 19, 6, 1),
                   fontFamily: 'Roboto',
@@ -214,7 +216,6 @@ class CompleteWeekChallengeState extends State<CompleteWeekChallenge> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              //content:  const Text("Hey! I'm onLongPress event"),
                               actions: <Widget>[
                                 Container(
                                   width: double.maxFinite,
@@ -234,7 +235,6 @@ class CompleteWeekChallengeState extends State<CompleteWeekChallenge> {
                                           transitionDuration: Duration.zero,
                                         ),
                                       );
-                                      // Button onPressed logic goes here
                                     },
                                   ),
                                 ),
