@@ -1,16 +1,65 @@
-# motify
+# Motify
 
-A new Flutter project.
+> Motify is a mobile app designed to help users stay motivated and try new things with various challenges.
 
-## Getting Started
+![App Screenshots](assets/images/screens.png)
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+Follow these steps to set up and run the Motify app locally, provided that you have already installed Flutter:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Install dependencies:
+
+```shell
+flutter pub get
+```
+
+3. Run the app on a simulator or physical device:
+```
+flutter run
+
+```
+
+> Note: Hot restart on ```Terminal``` to restart app in simulator.
+## Usage
+
+Motify provides the following features:
+
+- View and complete weekly challenges
+- Send challenges to your friends.
+- Capture and share progress photos.
+- Receive custom challenges from friends.
+
+### Getting Started
+
+1. Launch the app on your device.
+2. Create an account or log in if you already have one.
+3. Explore the different sections and features of the app.
+4. Complete challenges and gain points
+5. Challenge your friends to stay motivated and have fun.
+
+## Technologies Used
+
+Motify is built using the following technologies:
+
+- Flutter
+
+
+
+## Contact
+
+For any questions or feedback, feel free to reach out to us at \
+[kashan.mahmood.24@dartmouth.edu](mailto:kashan.mahmood.24@dartmouth.edu).\
+[shivangi.tandon.th@dartmouth.edu](mailto:shivangi.tandon.th@dartmouth.edu)\
+[madhusudan.basak.gr@dartmouth.edu](mailto:madhusudan.basak.gr@dartmouth.edu)\
+[anna.o.adobamen.24@dartmouth.edu](mailto:anna.o.adobamen.24@dartmouth.edu)
+
+## Acknowledgments
+
+We would like to acknowledge and thank the following libraries and resources used in this project:
+
+- [Flutter Packages and Documentation](https://docs.flutter.dev/)
+
+
