@@ -216,23 +216,27 @@ class CompleteWeekChallengeState extends State<CompleteWeekChallenge> {
                               ),
                               //content:  const Text("Hey! I'm onLongPress event"),
                               actions: <Widget>[
-                                TextButton(
-                                  child: Text(
-                                    'Back to Home',
-                                    textAlign: TextAlign.center,
+                                Container(
+                                  width: double.maxFinite,
+                                  alignment: Alignment.center,
+                                  child: TextButton(
+                                    child: Text(
+                                      'Back to Home',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                          pageBuilder: (context, animation,
+                                                  secondaryAnimation) =>
+                                              const newHomePage(),
+                                          transitionDuration: Duration.zero,
+                                        ),
+                                      );
+                                      // Button onPressed logic goes here
+                                    },
                                   ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                        pageBuilder: (context, animation,
-                                                secondaryAnimation) =>
-                                            const newHomePage(),
-                                        transitionDuration: Duration.zero,
-                                      ),
-                                    );
-                                    // Button onPressed logic goes here
-                                  },
                                 ),
                               ],
                             ));
