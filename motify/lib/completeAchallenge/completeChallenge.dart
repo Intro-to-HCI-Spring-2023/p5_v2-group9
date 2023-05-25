@@ -119,16 +119,16 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                     showDialog(
                         context: context,
                         builder: (_) => CupertinoAlertDialog(
-                              title: const Text("Select Image"),
-                              //content:  const Text("Hey! I'm onLongPress event"),
-                              actions: <Widget>[
-                                TextButton(
+                              title: const Text("Select Image",
+                                  style: TextStyle(fontSize: 18)),
+                              actions: [
+                                CupertinoDialogAction(
                                   child: Text('Photo from Gallery'),
                                   onPressed: () {
                                     pickImage();
                                   },
                                 ),
-                                TextButton(
+                                CupertinoDialogAction(
                                   child: Text('Photo from Camera'),
                                   onPressed: () {
                                     pickImageC();
