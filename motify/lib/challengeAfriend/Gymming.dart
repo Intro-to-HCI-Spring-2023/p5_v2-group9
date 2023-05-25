@@ -20,7 +20,7 @@ class Gymming extends StatefulWidget {
 
 class GymmingState extends State<Gymming> {
 
-    File? image;
+  File? image;
   bool def = true;
   
 

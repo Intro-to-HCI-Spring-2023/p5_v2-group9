@@ -98,24 +98,7 @@ class ChallengeFormatter extends StatelessWidget {
                         print("This button is just pressed!");
                         Navigator.pushNamed(context, challenge.template, arguments: this.friendName); //ChangesMade
                       })
-
-                  // Row(
-                  //   mainAxisSize: MainAxisSize.min,
-                  //   children: <Widget>[
-                  //     Text(
-                  //       'Use it!',
-                  //       textAlign: TextAlign.left,
-                  //       style: TextStyle(
-                  //           color: Color.fromRGBO(31, 52, 39, 1),
-                  //           fontFamily: 'Roboto',
-                  //           fontSize: 12,
-                  //           letterSpacing:
-                  //               0 /*percentages not used in flutter. defaulting to zero*/,
-                  //           fontWeight: FontWeight.normal,
-                  //           height: 1),
-                  //     ),
-                  //   ],
-                  // ),
+                      
                   ))
         ]));
   }

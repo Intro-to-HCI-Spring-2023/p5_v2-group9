@@ -19,7 +19,6 @@ class Reading extends StatefulWidget {
 }
 
 class ReadingState extends State<Reading> {
-
   File? image;
   bool def = true;
 
@@ -53,32 +52,33 @@ class ReadingState extends State<Reading> {
     }
   }
 
-
-   TextEditingController _textEditingController1 = TextEditingController();
-   TextEditingController _textEditingController2 = TextEditingController();
-   TextEditingController _textEditingController3 = TextEditingController();
+  TextEditingController _textEditingController1 = TextEditingController();
+  TextEditingController _textEditingController2 = TextEditingController();
+  TextEditingController _textEditingController3 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _textEditingController1 = TextEditingController(text: 'Read on the green');
-    _textEditingController2 = TextEditingController(text: 'Break a leg! Your challenge is to have a gym session with a friend this week...');
+    _textEditingController2 = TextEditingController(
+        text:
+            'Spring is here! Let\'s take it slow. Find a time this week to grab your favorite book and read it on the green. Hope you have a good time relaxing with yourself :)');
     _textEditingController3 = TextEditingController(text: '30');
   }
 
   void _sendChallenge(BuildContext context) {
     final friendName = ModalRoute.of(context)?.settings.arguments as String; //ChangesMade
     String text1 = _textEditingController1.text;
-                            String text2 = _textEditingController2.text;
-                            String text3 = _textEditingController3.text;
-                            print('Text 1: $text1');
-                            print('Text 2: $text2');
-                            print('Text 3: $text3');
+    String text2 = _textEditingController2.text;
+    String text3 = _textEditingController3.text;
+    print('Text 1: $text1');
+    print('Text 2: $text2');
+    print('Text 3: $text3');
     // Perform the action of sending the challenge
     showDialog(
       context: context,
       builder: (BuildContext context) {
-         return AlertDialog(
+        return AlertDialog(
           alignment: Alignment.center,
           titleTextStyle: TextStyle(
             fontFamily: 'Roboto',
@@ -89,7 +89,7 @@ class ReadingState extends State<Reading> {
           // contentTextStyle: TextStyle(
           //   fontFamily: 'Roboto',
           //   fontSize: 14,
-          //   color: Colors.black 
+          //   color: Colors.black
           //   ),
           // content: Text('sent to Amy'),
           actions: [
@@ -426,13 +426,12 @@ class ReadingState extends State<Reading> {
                             width: 150,
                             height: 150,
                             decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                      image : DecorationImage(
-                                        image: AssetImage('assets/images/readingchallenge.jpeg'),
-                                        fit: BoxFit.fill
-                                        )
-                            ),
-                        ),
+                                shape: BoxShape.rectangle,
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/readingchallenge.jpeg'),
+                                    fit: BoxFit.fill)),
+                          ),
                           onTap: () {
                             showDialog(
                                 context: context,
