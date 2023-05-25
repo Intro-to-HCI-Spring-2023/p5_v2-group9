@@ -8,11 +8,7 @@
 
 Follow these steps to set up and run the Motify app locally, provided that you have already installed Flutter:
 
-1. Clone the repository:
-
-   ```shell
-   git clone https://github.com/your-username/motify.git
-   ```
+1. Clone the repository
 
 2. Install dependencies:
 
@@ -25,6 +21,8 @@ flutter pub get
 flutter run
 
 ```
+
+> Note: Hot restart on ```Terminal``` to restart app in simulator.
 ## Usage
 
 Motify provides the following features:
