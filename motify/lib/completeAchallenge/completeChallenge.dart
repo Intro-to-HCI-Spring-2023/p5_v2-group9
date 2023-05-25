@@ -12,6 +12,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:motify/homepage/week_challenge.dart';
 import 'package:motify/globals.dart';
+import 'package:flutter/cupertino.dart';
 
 class CompleteChallenge extends StatefulWidget {
   const CompleteChallenge(
@@ -117,7 +118,7 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                   onTap: () {
                     showDialog(
                         context: context,
-                        builder: (_) => AlertDialog(
+                        builder: (_) => CupertinoAlertDialog(
                               title: const Text("Select Image"),
                               //content:  const Text("Hey! I'm onLongPress event"),
                               actions: <Widget>[
@@ -152,7 +153,7 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                   onTap: () {
                     showDialog(
                         context: context,
-                        builder: (_) => AlertDialog(
+                        builder: (_) => CupertinoAlertDialog(
                               title: const Text("Select Image"),
                               //content:  const Text("Hey! I'm onLongPress event"),
                               actions: <Widget>[
@@ -205,35 +206,68 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                     showDialog(
                         //barrierColor: const Color.fromRGBO(240, 222, 149, 1),
                         context: context,
-                        builder: (_) => AlertDialog(
-                              title: const Text(
-                                "Succesfully Completed!",
-                                style: TextStyle(
-                                  color: Color.fromRGBO(5, 19, 6, 1),
-                                  fontFamily: 'Roboto',
-                                  fontSize: 17,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              actions: <Widget>[
-                                Container(
-                                  width: double.maxFinite,
-                                  alignment: Alignment.center,
-                                  child: TextButton(
-                                    child: Text(
-                                      'Back to Home',
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    onPressed: () {
+                        builder: (BuildContext context) {
+                          return CupertinoAlertDialog(
+                            title: Text("Success"),
+                            actions: <Widget>[
+                              Container(
+                                width: double.maxFinite,
+                                alignment: Alignment.center,
+                                child: TextButton(
+                                  child: Text(
+                                    'Back to Home',
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  onPressed: () {
+                                    if (widget.callingPageRoute ==
+                                        '/week_challenge_page') {
+                                      print(challenge_invites);
+                                      weeklyChallenge = true;
+                                      userPoints = (int.parse(userPoints) +
+                                              int.parse(weekPoints))
+                                          .toString();
+
+                                      Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                          pageBuilder: (context, animation,
+                                                  secondaryAnimation) =>
+                                              HomePage(
+                                            weeklyChallengeCompleted:
+                                                weeklyChallenge,
+                                            challenge_invites:
+                                                challenge_invites,
+                                          ),
+                                          transitionDuration: Duration.zero,
+                                        ),
+                                      );
+                                    } else {
                                       if (widget.callingPageRoute ==
-                                          '/week_challenge_page') {
-                                        print(challenge_invites);
-                                        weeklyChallenge = true;
+                                          '/challenge_invite_page0') {
                                         userPoints = (int.parse(userPoints) +
-                                                int.parse(weekPoints))
+                                                int.parse(c1))
+                                            .toString();
+
+                                        challenge_invites[0] = true;
+                                        Navigator.push(
+                                          context,
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation,
+                                                    secondaryAnimation) =>
+                                                HomePage(
+                                              weeklyChallengeCompleted:
+                                                  weeklyChallenge,
+                                              challenge_invites:
+                                                  challenge_invites,
+                                            ),
+                                            transitionDuration: Duration.zero,
+                                          ),
+                                        );
+                                      } else if (widget.callingPageRoute ==
+                                          '/challenge_invite_page1') {
+                                        challenge_invites[1] = true;
+                                        userPoints = (int.parse(userPoints) +
+                                                int.parse(c2))
                                             .toString();
 
                                         Navigator.push(
@@ -250,98 +284,56 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                                             transitionDuration: Duration.zero,
                                           ),
                                         );
-                                      } else {
-                                        if (widget.callingPageRoute ==
-                                            '/challenge_invite_page0') {
-                                          userPoints = (int.parse(userPoints) +
-                                                  int.parse(c1))
-                                              .toString();
+                                      } else if (widget.callingPageRoute ==
+                                          '/challenge_invite_page2') {
+                                        challenge_invites[2] = true;
+                                        userPoints = (int.parse(userPoints) +
+                                                int.parse(c3))
+                                            .toString();
 
-                                          challenge_invites[0] = true;
-                                          Navigator.push(
-                                            context,
-                                            PageRouteBuilder(
-                                              pageBuilder: (context, animation,
-                                                      secondaryAnimation) =>
-                                                  HomePage(
-                                                weeklyChallengeCompleted:
-                                                    weeklyChallenge,
-                                                challenge_invites:
-                                                    challenge_invites,
-                                              ),
-                                              transitionDuration: Duration.zero,
+                                        Navigator.push(
+                                          context,
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation,
+                                                    secondaryAnimation) =>
+                                                HomePage(
+                                              weeklyChallengeCompleted:
+                                                  weeklyChallenge,
+                                              challenge_invites:
+                                                  challenge_invites,
                                             ),
-                                          );
-                                        } else if (widget.callingPageRoute ==
-                                            '/challenge_invite_page1') {
-                                          challenge_invites[1] = true;
-                                          userPoints = (int.parse(userPoints) +
-                                                  int.parse(c2))
-                                              .toString();
+                                            transitionDuration: Duration.zero,
+                                          ),
+                                        );
+                                      } else if (widget.callingPageRoute ==
+                                          '/challenge_invite_page3') {
+                                        challenge_invites[3] = true;
+                                        userPoints = (int.parse(userPoints) +
+                                                int.parse(c4))
+                                            .toString();
 
-                                          Navigator.push(
-                                            context,
-                                            PageRouteBuilder(
-                                              pageBuilder: (context, animation,
-                                                      secondaryAnimation) =>
-                                                  HomePage(
-                                                weeklyChallengeCompleted:
-                                                    weeklyChallenge,
-                                                challenge_invites:
-                                                    challenge_invites,
-                                              ),
-                                              transitionDuration: Duration.zero,
+                                        Navigator.push(
+                                          context,
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation,
+                                                    secondaryAnimation) =>
+                                                HomePage(
+                                              weeklyChallengeCompleted:
+                                                  weeklyChallenge,
+                                              challenge_invites:
+                                                  challenge_invites,
                                             ),
-                                          );
-                                        } else if (widget.callingPageRoute ==
-                                            '/challenge_invite_page2') {
-                                          challenge_invites[2] = true;
-                                          userPoints = (int.parse(userPoints) +
-                                                  int.parse(c3))
-                                              .toString();
-
-                                          Navigator.push(
-                                            context,
-                                            PageRouteBuilder(
-                                              pageBuilder: (context, animation,
-                                                      secondaryAnimation) =>
-                                                  HomePage(
-                                                weeklyChallengeCompleted:
-                                                    weeklyChallenge,
-                                                challenge_invites:
-                                                    challenge_invites,
-                                              ),
-                                              transitionDuration: Duration.zero,
-                                            ),
-                                          );
-                                        } else if (widget.callingPageRoute ==
-                                            '/challenge_invite_page3') {
-                                          challenge_invites[3] = true;
-                                          userPoints = (int.parse(userPoints) +
-                                                  int.parse(c4))
-                                              .toString();
-
-                                          Navigator.push(
-                                            context,
-                                            PageRouteBuilder(
-                                              pageBuilder: (context, animation,
-                                                      secondaryAnimation) =>
-                                                  HomePage(
-                                                weeklyChallengeCompleted:
-                                                    weeklyChallenge,
-                                                challenge_invites:
-                                                    challenge_invites,
-                                              ),
-                                              transitionDuration: Duration.zero,
-                                            ),
-                                          );
-                                        }
+                                            transitionDuration: Duration.zero,
+                                          ),
+                                        );
                                       }
-                                    },
-                                  ),
+                                    }
+                                  },
                                 ),
-                              ],
-                            ));
+                              ),
+                            ],
+                          );
+                        });
                   }),
             ),
           ],

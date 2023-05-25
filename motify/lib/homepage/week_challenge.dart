@@ -59,7 +59,7 @@ class WeekChallengeState extends State<WeekChallenge> {
                         top: 12.5,
                         left: 15,
                         child: Text(
-                          challengeName ?? '',
+                          challengeName,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color: Colors.white,
@@ -106,7 +106,7 @@ class WeekChallengeState extends State<WeekChallenge> {
                                   pageBuilder: (context, animation,
                                           secondaryAnimation) =>
                                       CompleteChallenge(
-                                    ChallengeName: challengeName ?? '',
+                                    ChallengeName: challengeName,
                                     callingPageRoute: '/week_challenge_page',
                                   ),
                                   transitionDuration: Duration.zero,
