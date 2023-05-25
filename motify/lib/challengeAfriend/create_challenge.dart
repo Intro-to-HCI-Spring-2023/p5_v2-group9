@@ -7,18 +7,22 @@ import 'package:motify/challengeAfriend/interests_formatter.dart';
 import 'package:motify/common_widgets/bottom_nav.dart';
 
 class CreateChallenge extends StatefulWidget {
-  const CreateChallenge({Key? key}) : super(key: key);
+  const CreateChallenge({Key? key, required this.friendName}) : super(key: key);
+  final String friendName;
 
   @override
   State<CreateChallenge> createState() => CreateChallengeState();
 }
+
+
+
 
 class CreateChallengeState extends State<CreateChallenge> {
   void onPressed() {
     print('Craft a challenge pressed!');
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => CraftChallenge()),
+      MaterialPageRoute(builder: (context) => CraftChallenge(friendName: widget.friendName,)), //ChangesMade
     );
 
   }
@@ -216,7 +220,8 @@ class CreateChallengeState extends State<CreateChallenge> {
                                     children: [
                                       Positioned(
                                           child: Text(
-                                        'Amy',
+                                        //'Amy', // ChangesMade
+                                        widget.friendName, // ChangesMade
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
@@ -245,7 +250,8 @@ class CreateChallengeState extends State<CreateChallenge> {
                                     ),
                                     child: CircleAvatar(
                                       backgroundImage:
-                                          AssetImage('assets/images/amy.avif'),
+                                          //AssetImage('assets/images/amy.avif'), // ChangeMade
+                                          getImageByName(widget.friendName), // ChangeMade
                                     ),
                                   ),
                                 ],
@@ -269,7 +275,7 @@ class CreateChallengeState extends State<CreateChallenge> {
                 bottom: 8.0,
               ),
               child: Text(
-                'Amy likes to',
+                widget.friendName+ ' likes to',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 16,
@@ -322,7 +328,7 @@ class CreateChallengeState extends State<CreateChallenge> {
                   itemCount: items.length,
                   itemBuilder: (BuildContext context, int index) {
                     ChallengeTemplates challenge = items[index];
-                    return ChallengeFormatter(challenge);
+                    return ChallengeFormatter(challenge: challenge, friendName: widget.friendName);
                   },
                 ),
               ),
@@ -388,5 +394,16 @@ class CreateChallengeState extends State<CreateChallenge> {
           ],
         ),
         bottomNavigationBar: const BottomNav());
+  }
+}
+
+
+AssetImage getImageByName(String imageName) {
+  if (imageName == 'Amy' || imageName=='Victoria' || imageName=='Jessica') {
+    return AssetImage('assets/images/amy.avif');
+                                          
+  } else {
+    // Default image
+    return AssetImage('assets/images/ravi.jpeg');
   }
 }
