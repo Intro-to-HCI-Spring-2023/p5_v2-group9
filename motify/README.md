@@ -48,26 +48,14 @@ Motify is built using the following technologies:
 
 - Flutter
 
-## Contributing
-
-Contributions to Motify are welcome! To contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your forked repository.
-5. Submit a pull request detailing your changes.
-
-Please make sure to follow the [contribution guidelines](CONTRIBUTING.md).
-
 
 
 ## Contact
 
-For any questions or feedback, feel free to reach out to us at 
-[kashan.mahmood.24@dartmouth.edu](mailto:kashan.mahmood.24@dartmouth.edu).
-[shivangi.tandon.th@dartmouth.edu](mailto:shivangi.tandon.th@dartmouth.edu)
-[madhusudan.basak.gr@dartmouth.edu](mailto:madhusudan.basak.gr@dartmouth.edu)
+For any questions or feedback, feel free to reach out to us at \
+[kashan.mahmood.24@dartmouth.edu](mailto:kashan.mahmood.24@dartmouth.edu).\
+[shivangi.tandon.th@dartmouth.edu](mailto:shivangi.tandon.th@dartmouth.edu)\
+[madhusudan.basak.gr@dartmouth.edu](mailto:madhusudan.basak.gr@dartmouth.edu)\
 [anna.o.adobamen.24@dartmouth.edu](mailto:anna.o.adobamen.24@dartmouth.edu)
 
 ## Acknowledgments
