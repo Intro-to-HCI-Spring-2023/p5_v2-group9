@@ -1,6 +1,6 @@
 # Motify
 
-> Motify is a mobile app designed to help users stay motivated and track their fitness goals.
+> Motify is a mobile app designed to help users stay motivated and try new things with various challenges.
 
 ![App Screenshots](assets/images/screens.png)
 
