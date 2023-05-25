@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motify/globals.dart';
 
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({Key? key});
@@ -41,8 +42,9 @@ class ProfileInfoState extends State<ProfileInfo> {
               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start, // Aligns the text to the left
-                children: const <Widget>[
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Aligns the text to the left
+                children: <Widget>[
                   Text(
                     'Hunter Jackson',
                     textAlign: TextAlign.left,
@@ -57,7 +59,7 @@ class ProfileInfoState extends State<ProfileInfo> {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    '110 points',
+                    userPoints + " points",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Color.fromRGBO(5, 19, 6, 1),

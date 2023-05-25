@@ -24,8 +24,6 @@ class LogInSignUpState extends State<LogInSignUp> {
             alignment: Alignment.center,
             child: Stack(
               children: <Widget>[
-
-
                 Positioned(
                   top: 480,
                   left: 80,
@@ -54,7 +52,6 @@ class LogInSignUpState extends State<LogInSignUp> {
                     ),
                   ),
                 ),
-
                 Positioned(
                   top: 515,
                   left: 30,
@@ -69,7 +66,8 @@ class LogInSignUpState extends State<LogInSignUp> {
                             width: 325,
                             child: Text(
                               'Join the community and take a new challenge every week',
-                              textAlign: TextAlign.center, // Center-align the text
+                              textAlign:
+                                  TextAlign.center, // Center-align the text
                               style: TextStyle(
                                 color: Color.fromRGBO(122, 122, 122, 1),
                                 fontFamily: 'Roboto',
@@ -84,7 +82,6 @@ class LogInSignUpState extends State<LogInSignUp> {
                     ),
                   ),
                 ),
-
                 Positioned(
                   top: 122,
                   left: -15,
@@ -103,7 +100,8 @@ class LogInSignUpState extends State<LogInSignUp> {
                   top: 647,
                   left: 50,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -119,13 +117,19 @@ class LogInSignUpState extends State<LogInSignUp> {
                               Navigator.pushReplacement(
                                 context,
                                 PageRouteBuilder(
-                                  transitionDuration: Duration.zero, // Set transition duration to zero
-                                  pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+                                  transitionDuration: Duration
+                                      .zero, // Set transition duration to zero
+                                  pageBuilder: (context, animation,
+                                          secondaryAnimation) =>
+                                      const HomePage(
+                                    weeklyChallengeCompleted: false,
+                                  ),
                                 ),
                               );
                             },
                             style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero, // Remove default padding
+                              padding:
+                                  EdgeInsets.zero, // Remove default padding
                             ),
                             child: Container(
                               alignment: Alignment.center,
@@ -140,7 +144,6 @@ class LogInSignUpState extends State<LogInSignUp> {
                               ),
                             ),
                           ),
-
                         ),
                         const SizedBox(height: 12),
                         Container(
@@ -155,13 +158,19 @@ class LogInSignUpState extends State<LogInSignUp> {
                               Navigator.pushReplacement(
                                 context,
                                 PageRouteBuilder(
-                                  transitionDuration: Duration.zero, // Set transition duration to zero
-                                  pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+                                  transitionDuration: Duration
+                                      .zero, // Set transition duration to zero
+                                  pageBuilder: (context, animation,
+                                          secondaryAnimation) =>
+                                      const HomePage(
+                                    weeklyChallengeCompleted: false,
+                                  ),
                                 ),
                               );
                             },
                             style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero, // Remove default padding
+                              padding:
+                                  EdgeInsets.zero, // Remove default padding
                             ),
                             child: Container(
                               alignment: Alignment.center,
@@ -176,7 +185,6 @@ class LogInSignUpState extends State<LogInSignUp> {
                               ),
                             ),
                           ),
-
                         ),
                       ],
                     ),

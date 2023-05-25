@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motify/feedPage/feed_page.dart';
-import 'package:motify/completeAchallenge/completeWeekChallenge.dart';
+import 'package:motify/completeAchallenge/completeChallenge.dart';
 
 class newWeekChallenge extends StatefulWidget {
   const newWeekChallenge({Key? key});
