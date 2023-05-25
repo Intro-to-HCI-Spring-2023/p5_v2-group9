@@ -6,7 +6,14 @@ import 'package:motify/homepage/challenge_invites.dart';
 import 'package:motify/homepage/people_know.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({
+    Key? key,
+    this.weeklyChallengeCompleted = false,
+    this.challenge_invites = const [false, false, false, false],
+  }) : super(key: key);
+
+  final bool? weeklyChallengeCompleted;
+  final List<bool> challenge_invites;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,7 +26,6 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         width: 390,
         height: 844,
-        
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromRGBO(255, 247, 246, 1),
@@ -28,10 +34,14 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(top: 80),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               ProfileInfo(),
-              WeekChallenge(),
-              ChallengeInvites(),
+              if (widget.weeklyChallengeCompleted != null &&
+                  widget.weeklyChallengeCompleted == true)
+                WeekChallenge(completed: true)
+              else
+                WeekChallenge(completed: false),
+              ChallengeInvites(completedList: widget.challenge_invites),
               PeopleKnow(),
             ],
           ),

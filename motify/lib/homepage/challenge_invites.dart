@@ -3,13 +3,28 @@ import 'package:motify/feedPage/feed_page.dart';
 import 'package:motify/completeAchallenge/completeChallenge.dart';
 
 class ChallengeInvites extends StatefulWidget {
-  const ChallengeInvites({Key? key}) : super(key: key);
+  const ChallengeInvites(
+      {Key? key, this.completedList = const [false, false, false, false]})
+      : super(key: key);
+  final List<bool> completedList;
 
   @override
   ChallengeInvitesState createState() => ChallengeInvitesState();
 }
 
 class ChallengeInvitesState extends State<ChallengeInvites> {
+  late List<bool> completedList;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.completedList != null) {
+      completedList = widget.completedList;
+    } else {
+      completedList = [false, false, false, false];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -82,65 +97,91 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
     String imagePath = '';
     String title = '';
     String points = '';
+    bool completed = false;
 
     // Set content based on the index or any other logic
     if (index == 0) {
       imagePath = 'assets/images/stroll.png';
       title = 'Swim 10 laps';
       points = '30 points';
+      completed = widget.completedList[index];
     } else if (index == 1) {
       imagePath = 'assets/images/run.png';
       title = 'Go for a hike';
       points = '40 points';
+      completed = widget.completedList[index];
     } else if (index == 2) {
       imagePath = 'assets/images/cycle.png';
       title = 'Go stargazing';
       points = '20 points';
+      completed = widget.completedList[index];
     } else if (index == 3) {
       imagePath = 'assets/images/swim.png';
       title = 'Go on a DOC trip';
       points = '60 points';
+      completed = widget.completedList[index];
+    }
+
+    Widget childWidget;
+    if (completed == true) {
+      return SizedBox.shrink(); // Skip the item if not completed
     }
 
     return GestureDetector(
       onTap: () {
         // Navigate to the desired screen based on the index or any other logic
         if (index == 0) {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  CompleteChallenge(ChallengeName: title),
-              transitionDuration: Duration.zero,
-            ),
-          );
+          if (!completed) {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    CompleteChallenge(
+                        ChallengeName: title,
+                        callingPageRoute: '/challenge_invite_page0'),
+                transitionDuration: Duration.zero,
+              ),
+            );
+          } else {}
         } else if (index == 1) {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  CompleteChallenge(ChallengeName: title),
-              transitionDuration: Duration.zero,
-            ),
-          );
+          if (!completed) {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    CompleteChallenge(
+                        ChallengeName: title,
+                        callingPageRoute: '/challenge_invite_page1'),
+                transitionDuration: Duration.zero,
+              ),
+            );
+          } else {}
         } else if (index == 2) {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  CompleteChallenge(ChallengeName: title),
-              transitionDuration: Duration.zero,
-            ),
-          );
+          if (!completed) {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    CompleteChallenge(
+                        ChallengeName: title,
+                        callingPageRoute: '/challenge_invite_page2'),
+                transitionDuration: Duration.zero,
+              ),
+            );
+          } else {}
         } else if (index == 3) {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  CompleteChallenge(ChallengeName: title),
-              transitionDuration: Duration.zero,
-            ),
-          );
+          if (!completed) {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    CompleteChallenge(
+                        ChallengeName: title,
+                        callingPageRoute: '/challenge_invite_page3'),
+                transitionDuration: Duration.zero,
+              ),
+            );
+          } else {}
         }
       },
       child: Container(
@@ -205,12 +246,15 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                 child: TextButton(
                   onPressed: () {
                     if (index == 0) {
+                      print("0 pushed");
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  CompleteChallenge(ChallengeName: title),
+                          pageBuilder: (context, animation,
+                                  secondaryAnimation) =>
+                              CompleteChallenge(
+                                  ChallengeName: title,
+                                  callingPageRoute: '/challenge_invite_page0'),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -218,9 +262,11 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  CompleteChallenge(ChallengeName: title),
+                          pageBuilder: (context, animation,
+                                  secondaryAnimation) =>
+                              CompleteChallenge(
+                                  ChallengeName: title,
+                                  callingPageRoute: '/challenge_invite_page1'),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -228,9 +274,11 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  CompleteChallenge(ChallengeName: title),
+                          pageBuilder: (context, animation,
+                                  secondaryAnimation) =>
+                              CompleteChallenge(
+                                  ChallengeName: title,
+                                  callingPageRoute: '/challenge_invite_page2'),
                           transitionDuration: Duration.zero,
                         ),
                       );
@@ -238,9 +286,11 @@ class ChallengeInvitesState extends State<ChallengeInvites> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  CompleteChallenge(ChallengeName: title),
+                          pageBuilder: (context, animation,
+                                  secondaryAnimation) =>
+                              CompleteChallenge(
+                                  ChallengeName: title,
+                                  callingPageRoute: '/challenge_invite_page3'),
                           transitionDuration: Duration.zero,
                         ),
                       );

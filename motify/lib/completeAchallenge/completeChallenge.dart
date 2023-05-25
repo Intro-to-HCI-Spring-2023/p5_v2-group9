@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:motify/challengeAfriend/create_challenge.dart';
-import 'package:motify/completeAchallenge/newHome.dart';
 import 'package:motify/homepage/home_page.dart';
 import 'package:motify/feedPage/amy_widget.dart';
 import 'package:motify/feedPage/john_widget.dart';
@@ -11,11 +10,15 @@ import 'package:motify/feedPage/jacob_widget.dart';
 import 'package:motify/common_widgets/bottom_nav.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:motify/homepage/week_challenge.dart';
+import 'package:motify/globals.dart';
 
 class CompleteChallenge extends StatefulWidget {
-  const CompleteChallenge({Key? key, required this.ChallengeName})
+  const CompleteChallenge(
+      {Key? key, required this.ChallengeName, required this.callingPageRoute})
       : super(key: key);
   final String ChallengeName;
+  final String callingPageRoute;
 
   @override
   State<CompleteChallenge> createState() => CompleteChallengeState();
@@ -173,22 +176,21 @@ class CompleteChallengeState extends State<CompleteChallenge> {
             Container(
               padding: const EdgeInsets.all(20),
               alignment: Alignment.center,
-              child: const SizedBox(
+              child: SizedBox(
                 width: 290.0,
                 child: TextField(
                   maxLines: 7,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Add caption...',
-                    hintStyle: TextStyle(
-                      color: Color.fromRGBO(5, 19, 6, 1),
-                      fontFamily: 'Lora',
-                      fontSize: 13,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.normal,
-                      height: 1,
-                    ),
-                  ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(color: Colors.green)),
+                      filled: true,
+                      fillColor: Color.fromRGBO(232, 224, 222, 1),
+                      hintText: 'Add caption',
+                      hintStyle: TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide.none)),
                 ),
               ),
             ),
@@ -226,15 +228,115 @@ class CompleteChallengeState extends State<CompleteChallenge> {
                                       textAlign: TextAlign.center,
                                     ),
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        PageRouteBuilder(
-                                          pageBuilder: (context, animation,
-                                                  secondaryAnimation) =>
-                                              const newHomePage(),
-                                          transitionDuration: Duration.zero,
-                                        ),
-                                      );
+                                      if (widget.callingPageRoute ==
+                                          '/week_challenge_page') {
+                                        print(challenge_invites);
+                                        weeklyChallenge = true;
+                                        userPoints = (int.parse(userPoints) +
+                                                int.parse(weekPoints))
+                                            .toString();
+
+                                        Navigator.push(
+                                          context,
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation,
+                                                    secondaryAnimation) =>
+                                                HomePage(
+                                              weeklyChallengeCompleted:
+                                                  weeklyChallenge,
+                                              challenge_invites:
+                                                  challenge_invites,
+                                            ),
+                                            transitionDuration: Duration.zero,
+                                          ),
+                                        );
+                                      } else {
+                                        if (widget.callingPageRoute ==
+                                            '/challenge_invite_page0') {
+                                          userPoints = (int.parse(userPoints) +
+                                                  int.parse(c1))
+                                              .toString();
+
+                                          challenge_invites[0] = true;
+                                          Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation,
+                                                      secondaryAnimation) =>
+                                                  HomePage(
+                                                weeklyChallengeCompleted:
+                                                    weeklyChallenge,
+                                                challenge_invites:
+                                                    challenge_invites,
+                                              ),
+                                              transitionDuration: Duration.zero,
+                                            ),
+                                          );
+                                        } else if (widget.callingPageRoute ==
+                                            '/challenge_invite_page1') {
+                                          challenge_invites[1] = true;
+                                          userPoints = (int.parse(userPoints) +
+                                                  int.parse(c2))
+                                              .toString();
+
+                                          Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation,
+                                                      secondaryAnimation) =>
+                                                  HomePage(
+                                                weeklyChallengeCompleted:
+                                                    weeklyChallenge,
+                                                challenge_invites:
+                                                    challenge_invites,
+                                              ),
+                                              transitionDuration: Duration.zero,
+                                            ),
+                                          );
+                                        } else if (widget.callingPageRoute ==
+                                            '/challenge_invite_page2') {
+                                          challenge_invites[2] = true;
+                                          userPoints = (int.parse(userPoints) +
+                                                  int.parse(c3))
+                                              .toString();
+
+                                          Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation,
+                                                      secondaryAnimation) =>
+                                                  HomePage(
+                                                weeklyChallengeCompleted:
+                                                    weeklyChallenge,
+                                                challenge_invites:
+                                                    challenge_invites,
+                                              ),
+                                              transitionDuration: Duration.zero,
+                                            ),
+                                          );
+                                        } else if (widget.callingPageRoute ==
+                                            '/challenge_invite_page3') {
+                                          challenge_invites[3] = true;
+                                          userPoints = (int.parse(userPoints) +
+                                                  int.parse(c4))
+                                              .toString();
+
+                                          Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                              pageBuilder: (context, animation,
+                                                      secondaryAnimation) =>
+                                                  HomePage(
+                                                weeklyChallengeCompleted:
+                                                    weeklyChallenge,
+                                                challenge_invites:
+                                                    challenge_invites,
+                                              ),
+                                              transitionDuration: Duration.zero,
+                                            ),
+                                          );
+                                        }
+                                      }
                                     },
                                   ),
                                 ),
