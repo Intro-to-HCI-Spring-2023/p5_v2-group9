@@ -24,7 +24,7 @@ flutter run
 
 > Note: Hot restart on ```Terminal``` to restart app in simulator.
 ## Usage
-
+[App Demo](https://youtu.be/JTpI82u04Ao)
 Motify provides the following features:
 
 - View and complete weekly challenges
