@@ -10,5 +10,5 @@ Kashan: KashanMahmood\
 Madhusudan: madhusudan039\
 Shivangi: Shivangidart
 
-## Other releavant details about your repository below:
+## Other relevant details about your repository below:
 More details can be on app usage, as well as the demo video,  can be found in this [README](./motify/README.md)
