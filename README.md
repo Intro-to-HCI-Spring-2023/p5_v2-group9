@@ -11,3 +11,4 @@ Madhusudan: madhusudan039\
 Shivangi: Shivangidart
 
 # Other releavant details about your repository below:
+More details can be on app usage can be found in this (README)[./motify/README.md] for
